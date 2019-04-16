@@ -10,6 +10,7 @@ class DropDown:
         self.driver = myDriver
         self.link_suc= (By.LINK_TEXT,'SUCURSALES')
 
+
     def link_gsn(self,value):
            #self.driver.implicitly_wait(5)
            try:
