@@ -1,6 +1,4 @@
 from selenium import webdriver
-from gsn.Pages import PageDrop, PageForm
-from gsn.Helpers import Data
 import unittest
 import HtmlTestRunner
 import sys
