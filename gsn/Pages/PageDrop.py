@@ -5,7 +5,9 @@ from selenium.webdriver.support import expected_conditions
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.common.by import By
 
+
 class DropDown:
+
     def __init__(self,myDriver):
         self.driver = myDriver
         self.link_suc= (By.LINK_TEXT,'SUCURSALES')
@@ -23,10 +25,10 @@ class DropDown:
            tc= unittest.TestCase('__init__')
            tc.assertEqual(value, 'SUCURSALES')
 
-
-
     def drop_List(self,val):
-        self.driver.set_window_size(604,480)
+
+        self.driver.set_window_position(500, 200)
+        self.driver.set_window_size(375,412)
         link_drop=Select(self.driver.find_element_by_id('sucursal'))
         link_drop.select_by_value(val)
 

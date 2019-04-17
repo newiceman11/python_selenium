@@ -3,16 +3,20 @@ from gsn.Pages import PageDrop, PageForm
 from gsn.Helpers import Data
 import unittest
 import HtmlTestRunner
+import sys
+import os
+sys.path.append(os.path.join(__file__))
 
 myData= Data.test_data()
 
+
 class TestGsn(unittest.TestCase):
 
-
     def setUp(self):
-        op = webdriver.FirefoxOptions()
-        op.add_argument('-headless')
-        self.driver = webdriver.Firefox(executable_path = 'geckodriver',firefox_options=op)
+
+        """op = webdriver.FirefoxOptions()
+        op.add_argument('-headless')"""
+        self.driver = webdriver.Firefox(executable_path = myData.Driver_ff)#,firefox_options=op)
         self.driver.get(myData.Url)
         self.page_drop = PageDrop.DropDown(self.driver)
         self.page_form= PageForm.Form(self.driver)
@@ -28,8 +32,6 @@ class TestGsn(unittest.TestCase):
     def test_form(self):
         #self.page_form.function_form('CONTACTO')
         self.page_form.contact_by_tab('CONTACTO',myData.Persona,'xxxx@xxxxx.xxx','3364646464','Testing','Hola!, es un testing automatizado')
-
-
 
     def tearDown(self):
         self.driver.quit()
