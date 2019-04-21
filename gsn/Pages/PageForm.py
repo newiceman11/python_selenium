@@ -11,8 +11,6 @@ class Form:
         self.Name = (By.NAME, 'nombre')
 
 
-
-
     def function_form(self,value):
         """#self.driver.implicitly_wait(5)
         link=self.driver.find_element_by_link_text(value)
