@@ -10,20 +10,21 @@ myData= Data.test_data()
 class TestGsn(unittest.TestCase):
 
     def setUp(self):
-        """op = webdriver.FirefoxOptions()
-        op.add_argument('-headless')"""
+        '''op = webdriver.FirefoxOptions()
+        op.add_argument('-headless')'''
         self.driver = webdriver.Firefox(executable_path=myData.Driver_ff)#,firefox_options=op)
+        #self.driver.set_window_size(600,600)
         self.driver.get(myData.Url)
         self.page_drop = PageDrop.DropDown(self.driver)
         self.page_form= PageForm.Form(self.driver)
         self.page_test=PageTest.responsive(self.driver)
 
-    @unittest.skip("Omisión")
+    @unittest.skip("select")
     def test_dropDown(self):
         self.page_drop.link_gsn('SUCURSALES')
         self.page_drop.drop_List('ros')
 
-
+    @unittest.skip("form")
     #unittest.skipIf(2>1)
     #unittest.skipUnless()
     def test_form(self):
